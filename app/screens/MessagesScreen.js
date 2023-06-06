@@ -30,13 +30,13 @@ const initialMessages = [
         title: 'Edmon T2', 
         description: 'Post 2 description D2',
         image: require('../assets/edmon_whie_shirt_photo.jpg'),
-    }
+    },
 ]
 
 function MessagesScreen(props) {
 
     const [messages, setMessages] = useState(initialMessages);
-    
+    const [refreshing, setRefreshing] = useState(false);
 
 
     const handleDelete = message => {
@@ -61,7 +61,17 @@ function MessagesScreen(props) {
                 />}   
 
                 ItemSeparatorComponent={ListItemSeparator}
-
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([
+                        {
+                            id: 2, 
+                            title: 'Edmon T2', 
+                            description: 'Post 2 description D2',
+                            image: require('../assets/edmon_whie_shirt_photo.jpg'),
+                        },
+                    ])
+                }}
                 />
         </SafeAreaView>
     );
