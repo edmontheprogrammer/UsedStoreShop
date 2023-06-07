@@ -16,7 +16,6 @@ import ListItem from '../components/ListItem';
 import ListItemSeparator from '../components/ListItemSeparator';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 
-
 const initialMessages = [
     {
         id: 1, 
@@ -80,6 +79,8 @@ function MessagesScreen(props) {
 const styles = StyleSheet.create({
     screen: {
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, 
+        backgroundColor: 'yellow',
+        flex: 1, 
     }
 })
 

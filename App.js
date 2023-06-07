@@ -2,10 +2,19 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import MessagesScreen from './app/screens/MessagesScreen';
+import { SafeAreaView } from 'react-native';
+
+import Icon from './app/components/Icon';
+import ListItem from './app/components/ListItem';
 
 export default function App() {
   return (
-    <MessagesScreen />
+    <SafeAreaView >
+      <ListItem 
+          title="My title" 
+          ImageComponent={<Icon name="email"/>} />
+
+    </SafeAreaView>
   );
 }
 
