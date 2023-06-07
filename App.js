@@ -6,15 +6,11 @@ import { SafeAreaView } from 'react-native';
 
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
+import AccountScreen from './app/screens/AccountScreen';
 
 export default function App() {
   return (
-    <SafeAreaView >
-      <ListItem 
-          title="My title" 
-          ImageComponent={<Icon name="email"/>} />
-
-    </SafeAreaView>
+      <AccountScreen />
   );
 }
 
