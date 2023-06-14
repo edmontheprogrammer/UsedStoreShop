@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native';
-
-
+import { StyleSheet, View, FlatList } from 'react-native';
 
 import ListItem from '../components/ListItem';
+import ListItemSeparator from '../components/ListItemSeparator';
+
 import colors from '../configs/colors';
 import Icon from '../components/Icon';
-
+import Screen from '../components/Screen';
 
 const menuItems = [
    {
@@ -27,37 +27,44 @@ const menuItems = [
 
 function AccountScreen(props) {
     return (
-        <SafeAreaView style={styles.ContainerForSafeAreaView}>
-        <View  style={styles.container}>
+        <Screen style={styles.screen}>
+            <View  style={styles.container}>
+                <ListItem 
+                    title="Edmon Sebit"
+                    subTitle="MyEmail@gmail.com"
+                    image={require('../assets/edmon_whie_shirt_photo.jpg')}
+                />
+            </View>
+            <View  style={styles.container}>
+                <FlatList 
+                    data={menuItems}
+                    keyExtractor={menuItem => menuItem.title}
+                    ItemSeparatorComponent={ListItemSeparator}
+                    renderItem={({ item }) =>
+                        <ListItem
+                            title={item.title}
+                            IconComponent={
+                                <Icon  name={item.icon.name} 
+                                backgroundColor={item.icon.backgroundColor} />
+                            }
+                        />
+                    }
+                />
+            </View>
             <ListItem 
-                title="Edmon Sebit"
-                subTitle="MyEmail@gmail.com"
-                image={require('../assets/edmon_whie_shirt_photo.jpg')}
+                title="Log Out"
+                IconComponent={
+                    <Icon name='logout' backgroundColor='#ffe66d' />
+                }
             />
-        </View>
-        <View  style={styles.container}>
-            <FlatList 
-                data={menuItems}
-                keyExtractor={menuItem => menuItem.title}
-                renderItem={({ item }) =>
-                    <ListItem
-                        title={item.title}
-                        ImageComponent={
-                            <Icon  name={item.icon.name} 
-                            backgroundColor={item.icon.backgroundColor} />
-                        }
-                     />
-                 }
-            />
-        </View>
-        </SafeAreaView>
+        </Screen>
     );
 }
 
 const styles = StyleSheet.create({
-    ContainerForSafeAreaView: {
-        backgroundColor: colors.light, 
-    },
+    screen: {
+        backgroundColor: colors.light,
+    },  
     container: {
         marginVertical: 20,
       backgroundColor: '#fff', 

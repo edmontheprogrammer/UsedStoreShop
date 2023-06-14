@@ -7,7 +7,8 @@ import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler"
 import AppText from './AppText/AppText';
 import colors from '../configs/colors';
 
-function ListItem({title, subTitle, image, onPress, ImageComponent, renderRightActions}) {
+
+function ListItem({title, subTitle, image, onPress, IconComponent, renderRightActions}) {
     return (
         <GestureHandlerRootView>
             <Swipeable renderRightActions={renderRightActions}>
@@ -15,7 +16,7 @@ function ListItem({title, subTitle, image, onPress, ImageComponent, renderRightA
                     underlayColor={colors.light}
                     onPress={onPress}>
                     <View style={styles.container}>
-                        {ImageComponent}
+                        {IconComponent}
                         {image && <Image style={styles.image} source={image} />}
                         <View style={styles.detailsContainer}>
                             <AppText style={styles.title}>{title}</AppText>
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row", 
         padding: 15, 
+        backgroundColor: colors.white, 
     }, 
     detailsContainer: {
         marginLeft: 10, 
