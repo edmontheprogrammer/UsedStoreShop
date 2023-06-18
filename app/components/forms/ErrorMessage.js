@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import AppText from './AppText';
+import AppText from '../AppText';
 
 // this is creating a custom ErrorMessage that we can display to the user in the 
 // "LoginScreen" component

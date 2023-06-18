@@ -1,19 +1,10 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-import { Formik } from 'formik'; 
 import * as Yup from 'yup'; 
 
-import AppButton from '../components/AppButton';
-import AppTextInput from '../components/AppTextInput';
-import ErrorMessage from '../components/ErrorMessage';
 import Screen from '../components/Screen';
-import AppFormField from '../components/AppFormField';
-import AppSubmitButton from '../components/AppSubmitButton';
 
-
-
-
-
+import {AppForm, AppFormField, AppSubmitButton} from '../components/forms'; 
 
 // We are defining validation schema, a validation schema is an object that determines all the rules 
 // for validating data in our form. 
@@ -38,7 +29,7 @@ function LoginScreen(props) {
             <Image 
                 style={styles.logo}
                 source={require("../assets/logo.jpg")}  />
-            <Formik
+            <AppForm
                 initialValues={{ email: '', password: '' }}
                 /*
                     * "onSubmit": This is where we call the server and send the "email" and
@@ -78,9 +69,8 @@ function LoginScreen(props) {
                 
 
                 */}
-                {() => (
-                    <>
-                        <AppFormField
+
+                <AppFormField
                             // telling "iOS" and "Android" not to captialize 
                             // the text we input 
                             autoCapitalize="none"
@@ -101,10 +91,7 @@ function LoginScreen(props) {
                             secureTextEntry={true}
                         />
                         <AppSubmitButton title="Login" />
-                    </>
-                )}
-            </Formik>
-
+            </AppForm>
         </Screen>
     );
 }
