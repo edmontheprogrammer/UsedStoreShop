@@ -17,7 +17,7 @@ const validationSchema = Yup.object().shape({
     password: Yup
                 .string()
                 .required()
-                .min(4)
+                .min(8)
                 .matches()
                 .label("Password")
 }); 
